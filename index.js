@@ -48,6 +48,13 @@ client.on("message", async (msg) => {
       let index = Math.floor(Math.random() * json.results.length);
       msg.channel.send(json.results[index].url);
       msg.channel.send(`GIF from Tenor ${keywords}`);
+    } else if (tokens[0] === "$help") {
+      msg.channel.send(`
+$hello   - Say Hello
+$whatami - Tells what you are
+$gif     - Give a random GIF
+$help    - Send this help message
+      `);
     }
   }
 });
