@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
+const keepAlive = require("./server");
 require("dotenv").config();
 
 const client = new Discord.Client();
@@ -23,8 +24,6 @@ let whatami = [
   "Elegant Elephant 🐘",
   "Dumb Dolphin 🐬",
 ];
-
-client.login(process.env.BOT_TOKEN);
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}`);
@@ -52,3 +51,6 @@ client.on("message", async (msg) => {
     }
   }
 });
+
+keepAlive();
+client.login(process.env.BOT_TOKEN);
