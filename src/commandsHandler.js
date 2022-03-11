@@ -8,8 +8,7 @@ module.exports = async (msg) => {
         commands.hello(msg);
         break;
       case "$whatami":
-        index = Math.floor(Math.random() * whatami.length);
-        msg.channel.send(whatami[index]);
+        commands.whatAmI(msg);
         break;
       case "$gif":
         commands.sendGIF(msg, tokens);
