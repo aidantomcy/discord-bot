@@ -1,3 +1,6 @@
+const fetch = (...args) =>
+  import("node-fetch").then(({ default: fetch }) => fetch(...args));
+
 const hello = (msg) => {
   msg.channel.send("Hello!");
 };
