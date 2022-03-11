@@ -24,11 +24,11 @@ const whatAmI = (msg) => {
     "Elegant Elephant 🐘",
     "Dumb Dolphin 🐬",
   ];
-  index = Math.floor(Math.random() * whatami.length);
+  let index = Math.floor(Math.random() * whatami.length);
   msg.channel.send(whatami[index]);
 };
 
-const sendGIF = (msg, tokens) => {
+const sendGIF = async (msg, tokens) => {
   let keywords = "dog";
 
   if (tokens.length > 1) {
@@ -37,7 +37,7 @@ const sendGIF = (msg, tokens) => {
   let url = `https://g.tenor.com/v1/search?q=${keywords}&key=${process.env.TENOR_KEY}&contentfilter=high`;
   let response = await fetch(url);
   let json = await response.json();
-  index = Math.floor(Math.random() * json.results.length);
+  let index = Math.floor(Math.random() * json.results.length);
   msg.channel.send(json.results[index].url);
   msg.channel.send(`GIF from Tenor ${keywords}`);
 };
