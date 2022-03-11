@@ -42,6 +42,18 @@ const sendGIF = async (msg, tokens) => {
   msg.channel.send(`GIF from Tenor ${keywords}`);
 };
 
+const sendJoke = async (msg) => {
+  const config = {
+    headers: {
+      Accept: "application/json",
+    },
+  };
+  const res = await fetch("https://icanhazdadjoke.com", config);
+  const data = await res.json();
+
+  msg.channel.send(data.joke);
+};
+
 const help = (msg) => {
   msg.channel.send(`
 $hello   - Say Hello
@@ -56,4 +68,5 @@ module.exports = {
   whatAmI,
   sendGIF,
   help,
+  sendJoke,
 };

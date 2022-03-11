@@ -16,6 +16,8 @@ module.exports = async (msg) => {
       case "$help":
         commands.help(msg);
         break;
+      case "$joke":
+        commands.sendJoke(msg);
     }
   }
 };
