@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const keepAlive = require("./server");
-const commandHandler = require("./commands");
+const commandHandler = require("./commandsHandler");
 require("dotenv").config();
 
 const client = new Discord.Client();
