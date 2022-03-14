@@ -54,6 +54,12 @@ const sendJoke = async (msg) => {
   msg.channel.send(data.joke);
 };
 
+const getQuote = async (msg) => {
+  const res = await fetch("https://zenquotes.io/api/random");
+  const data = await res.json();
+  msg.channel.send(data[0]["q"] + " -" + data[0]["a"]);
+};
+
 const help = (msg) => {
   msg.channel.send(`
 $hello   - Say Hello
@@ -69,4 +75,5 @@ module.exports = {
   sendGIF,
   help,
   sendJoke,
+  getQuote,
 };

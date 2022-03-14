@@ -18,6 +18,8 @@ module.exports = async (msg) => {
         break;
       case "$joke":
         commands.sendJoke(msg);
+      case "$quote":
+        commands.getQuote(msg);
     }
   }
 };
