@@ -1,6 +1,7 @@
 import { REST, Routes } from "discord.js";
-import commands from "./commands";
 import { token, clientId, client } from "./consants";
+import { MemeApiResponse } from "./types";
+import commands from "./commands";
 
 const rest = new REST({ version: "10" }).setToken(
   token === undefined ? "" : token
@@ -27,8 +28,12 @@ client.on("ready", () => {
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
-  if (interaction.commandName === "ping") {
-    await interaction.reply("Pong!");
+  if (interaction.commandName === "meme") {
+    const response = await fetch("https://meme-api.herokuapp.com/gimme");
+    const data: Promise<MemeApiResponse> = await response.json();
+    const url = (await data).url;
+
+    await interaction.reply(url);
   }
 });
 
