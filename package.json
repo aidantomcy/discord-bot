@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "My Discord Bot made with JavaScript",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "dev": "tsc -w",
+    "start": "node dist/index.js",
+    "dev:js": "nodemon dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/aidantomcy/discord-bot/issues"
   },
-  "homepage": "https://github.com/aidantomcy/discord-bot#readme"
+  "homepage": "https://github.com/aidantomcy/discord-bot#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "typescript": "^4.8.4"
+  }
 }
