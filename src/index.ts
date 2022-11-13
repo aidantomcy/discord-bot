@@ -3,9 +3,7 @@ import { token, clientId, client } from "./consants";
 import { DadJokeApiResponse, MemeApiResponse } from "./types";
 import commands from "./commands";
 
-const rest = new REST({ version: "10" }).setToken(
-  token === undefined ? "" : token
-);
+const rest = new REST({ version: "10" }).setToken(token);
 
 (async () => {
   try {
