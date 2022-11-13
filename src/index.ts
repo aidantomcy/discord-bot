@@ -1,6 +1,6 @@
 import { REST, Routes } from "discord.js";
 import { token, clientId, client } from "./consants";
-import { MemeApiResponse } from "./types";
+import { DadJokeApiResponse, MemeApiResponse } from "./types";
 import commands from "./commands";
 
 const rest = new REST({ version: "10" }).setToken(
@@ -34,6 +34,16 @@ client.on("interactionCreate", async (interaction) => {
     const url = (await data).url;
 
     await interaction.reply(url);
+  } else if (interaction.commandName === "dadjoke") {
+    const response = await fetch("https://icanhazdadjoke.com", {
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    const data: Promise<DadJokeApiResponse> = await response.json();
+    const joke = (await data).joke;
+
+    await interaction.reply(joke);
   }
 });
 

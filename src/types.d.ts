@@ -15,4 +15,10 @@ interface MemeApiResponse {
   preview: string[];
 }
 
-export { SlashCommands, MemeApiResponse };
+interface DadJokeApiResponse {
+  id: string;
+  joke: string;
+  status: 200;
+}
+
+export { SlashCommands, MemeApiResponse, DadJokeApiResponse };
