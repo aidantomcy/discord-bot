@@ -26,22 +26,25 @@ client.on("ready", () => {
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
-  if (interaction.commandName === "meme") {
-    const response = await fetch("https://meme-api.herokuapp.com/gimme");
-    const data: Promise<MemeApiResponse> = await response.json();
-    const url = (await data).url;
+  switch (interaction.commandName) {
+    case "meme": {
+      const response = await fetch("https://meme-api.herokuapp.com/gimme");
+      const data: Promise<MemeApiResponse> = await response.json();
+      const url = (await data).url;
 
-    await interaction.reply(url);
-  } else if (interaction.commandName === "dadjoke") {
-    const response = await fetch("https://icanhazdadjoke.com", {
-      headers: {
-        Accept: "application/json",
-      },
-    });
-    const data: Promise<DadJokeApiResponse> = await response.json();
-    const joke = (await data).joke;
+      await interaction.reply(url);
+    }
+    case "dadjoke": {
+      const response = await fetch("https://icanhazdadjoke.com", {
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      const data: Promise<DadJokeApiResponse> = await response.json();
+      const joke = (await data).joke;
 
-    await interaction.reply(joke);
+      await interaction.reply(joke);
+    }
   }
 });
 
