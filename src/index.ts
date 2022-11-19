@@ -1,5 +1,5 @@
 import { REST, Routes } from "discord.js";
-import { token, clientId, client } from "./consants";
+import { token, clientId, client } from "./constants";
 import { DadJokeApiResponse, MemeApiResponse } from "./types";
 import commands from "./commands";
 
