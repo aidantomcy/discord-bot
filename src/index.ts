@@ -1,6 +1,10 @@
 import { REST, Routes } from "discord.js";
 import { token, clientId, client } from "./constants";
-import { DadJokeApiResponse, MemeApiResponse } from "./types";
+import {
+  DadJokeApiResponse,
+  MemeApiResponse,
+  SlashCommandsList,
+} from "./types";
 import commands from "./commands";
 
 const rest = new REST({ version: "10" }).setToken(token);
@@ -24,9 +28,11 @@ client.on("ready", () => {
 });
 
 client.on("interactionCreate", async (interaction) => {
-  if (!interaction.isChatInputCommand()) return;
+  if (!interaction.isChatInputCommand()) {
+    return;
+  }
 
-  switch (interaction.commandName) {
+  switch (interaction.commandName as SlashCommandsList) {
     case "meme": {
       const response = await fetch("https://meme-api.herokuapp.com/gimme");
       const data: Promise<MemeApiResponse> = await response.json();

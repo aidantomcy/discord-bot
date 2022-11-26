@@ -3,6 +3,8 @@ interface SlashCommands {
   description: string;
 }
 
+type SlashCommandsList = "meme" | "dadjoke";
+
 interface MemeApiResponse {
   postLink: string;
   subreddit: string;
@@ -21,4 +23,9 @@ interface DadJokeApiResponse {
   status: 200;
 }
 
-export { SlashCommands, MemeApiResponse, DadJokeApiResponse };
+export {
+  SlashCommands,
+  MemeApiResponse,
+  DadJokeApiResponse,
+  SlashCommandsList,
+};
