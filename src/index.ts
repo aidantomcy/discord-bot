@@ -1,4 +1,4 @@
-import { REST, Routes } from "discord.js";
+import { CacheType, Interaction, REST, Routes } from "discord.js";
 import { token, clientId, client } from "./constants";
 import {
   DadJokeApiResponse,
@@ -27,7 +27,7 @@ client.on("ready", () => {
   console.log(`Logged in as ${client?.user?.tag}!`);
 });
 
-client.on("interactionCreate", async (interaction) => {
+client.on("interactionCreate", async (interaction: Interaction<CacheType>) => {
   if (!interaction.isChatInputCommand()) {
     return;
   }
