@@ -1,11 +1,11 @@
-interface SlashCommands {
+type SlashCommands = {
   name: string;
   description: string;
-}
+};
 
 type SlashCommandsList = "meme" | "dadjoke";
 
-interface MemeApiResponse {
+type MemeApiResponse = {
   postLink: string;
   subreddit: string;
   title: string;
@@ -15,13 +15,13 @@ interface MemeApiResponse {
   author: string;
   ups: number;
   preview: string[];
-}
+};
 
-interface DadJokeApiResponse {
+type DadJokeApiResponse = {
   id: string;
   joke: string;
   status: 200;
-}
+};
 
 export {
   SlashCommands,
