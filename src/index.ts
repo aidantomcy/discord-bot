@@ -34,7 +34,7 @@ client.on("interactionCreate", async (interaction: Interaction<CacheType>) => {
 
   switch (interaction.commandName as SlashCommandsList) {
     case "meme": {
-      const response = await fetch("https://meme-api.herokuapp.com/gimme");
+      const response = await fetch("https://meme-api.com/gimme");
       const data: Promise<MemeApiResponse> = await response.json();
       const url = (await data).url;
 
