@@ -8,13 +8,13 @@ import {
 import commands from "./commands";
 import fetchData from "./fetchData";
 
-const rest = new REST({ version: "10" }).setToken(token);
+const rest = new REST({ version: "10" }).setToken(token ?? "");
 
 (async () => {
   try {
     console.log("Started refreshing application (/) commands.");
 
-    await rest.put(Routes.applicationCommands(clientId), {
+    await rest.put(Routes.applicationCommands(clientId ?? ""), {
       body: commands,
     });
 
